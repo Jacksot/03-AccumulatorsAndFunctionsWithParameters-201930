@@ -22,7 +22,8 @@ def main():
     #draw_circles2()
     #print_sequence3()
     #draw_circles3()
-    print_cosines()
+    #print_cosines()
+    draw_cosines_and_sines()
 
 def print_sequence1():
     """
@@ -194,7 +195,7 @@ def print_cosines():
        68.9855097830147
     """
     # -------------------------------------------------------------------------
-    # TODO: 8. Implement this function, per its doc-string above.
+    # DONE: 8. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     #
@@ -210,10 +211,9 @@ def print_cosines():
     print('Running print_cosines:')
     print('--------------------------------------------------')
 
-    total = 0
     for k in range(101):
-        total = total + 80*math.cos(k)
-    return total
+        total = 80*math.cos(k)
+        print(total)
 
 
 def draw_cosines_and_sines():
@@ -231,7 +231,7 @@ def draw_cosines_and_sines():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # -------------------------------------------------------------------------
-    # TODO: 9. Implement this function, per its doc-string above.
+    # DONE: 9. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # -------------------------------------------------------------------------
@@ -240,6 +240,12 @@ def draw_cosines_and_sines():
     print('Running draw_cosines_and_sines:  See graphics window')
     print('--------------------------------------------------')
 
+    window = rg.RoseWindow(400, 400)
+    for k in range(101):
+        circle = rg.Circle(rg.Point(200+80*math.cos(k), 200+(80*math.sin(k))), 10)
+        circle.attach_to(window)
+        window.render()
+    window.close_on_mouse_click()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
